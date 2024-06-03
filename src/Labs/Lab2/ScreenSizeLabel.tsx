@@ -19,7 +19,6 @@ export default function ScreenSizeLabel() {
             <div className="d-none d-xxl-block fa-2x">
                 XXL - Extra Extra Large (≥1400px)
             </div>
-
         </div>
     );
 }
