@@ -3,117 +3,143 @@ export default function Dashboard() {
         <div id="ws-dashboard">
             <h1 id="wd-dashboard-title">Dashboard</h1> <hr />
             <h2 id="wd-dashboard-pulished">Published Courses (12)</h2> <hr/>
-            <div id="wd-dashboard-courses">
+            <div id="wd-dashboard-courses" className ="row">
+                <div className="row row-cols-1 row-cols-md-5 g-4">
 
-                <div className="wd-dashboard-courses">
-                    <img src="/images/reactjs.jpg" width={200}/>
-                    <div>
-                        <a className="wd-dashboard-course-link"
-                           href="#/Kanbas/Courses/1234/Home">
-                            CS1234 React JS
-                        </a>
-                        <p className="wd-dashboard-course-link">
-                            Full Stack Software Development
-                        </p>
-                        <a href="#/Kanbas/Courses/1234/Home"> Go </a>
+                    <div className="wd-dashboard-courses col" style={{ width: "300px" }} >
+                        <div className="card">
+                            <img src="/images/reactjs.png" />
+                            <div className="card-body">
+                                <a className="wd-dashboard-course-link"
+                                   href="#/Kanbas/Courses/1234/Home"
+                                    style={{ textDecoration:"none", color: "navy", fontWeight:"bold" }}>
+                                    CS1234 React JS
+                                </a>
+                                <p className="wd-dashboard-course-link card-text">
+                                    Software Development
+                                </p>
+                                <a href="#/Kanbas/Courses/1234/Home" className="btn btn-primary"> Go </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div className="wd-dashboard-courses">
-                    <img src="/images/data-structure.png" width={200}/>
-                    <div>
-                        <a className="wd-dashboard-course-link"
-                           href="#/Kanbas/Courses/1234/Home">
-                            CS5008 Data Structure and Algorithm
-                        </a>
-                        <p className="wd-dashboard-course-link">
-                            Models of computing and system software
-                        </p>
-                        <a href="#/Kanbas/Courses/1234/Home"> Go </a>
+                    <div className="wd-dashboard-courses col" style={{ width: "300px" }} >
+                        <div className="card">
+                            <img src="/images/data-structure.png" />
+                            <div className="card-body">
+                                <a className="wd-dashboard-course-link"
+                                   href="#/Kanbas/Courses/1234/Home"
+                                   style={{textDecoration: "none", color: "green", fontWeight: "bold"}}>
+                                    CS5008 Data Structure
+                                </a>
+                                <p className="wd-dashboard-course-link card-text">
+                                    Models of computing
+                                </p>
+                                <a href="#/Kanbas/Courses/1234/Home" className="btn btn-primary"> Go </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div className="wd-dashboard-courses">
-                    <img src="/images/ood.png" width={200}/>
-                    <div>
-                        <a className="wd-dashboard-course-link"
-                           href="#/Kanbas/Courses/1234/Home">
-                            CS5004 Object Oriented Design
-                        </a>
-                        <p className="wd-dashboard-course-link">
-                            Intensive tour of class-based program design
-                        </p>
-                        <a href="#/Kanbas/Courses/1234/Home"> Go </a>
+                    <div className="wd-dashboard-courses col" style={{ width: "300px" }} >
+                        <div className="card">
+                            <img src="/images/ood.png" />
+                            <div className="card-body">
+                                <a className="wd-dashboard-course-link"
+                                   href="#/Kanbas/Courses/1234/Home"
+                                   style={{textDecoration: "none", color: "darkred", fontWeight: "bold"}}>
+                                    CS5004 OOD
+                                </a>
+                                <p className="wd-dashboard-course-link card-text">
+                                  Class-based program design
+                                </p>
+                                <a href="#/Kanbas/Courses/1234/Home" className="btn btn-primary"> Go </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div className="wd-dashboard-courses">
-                    <img src="/images/web-dev.jpg" width={200}/>
-                    <div>
-                        <a className="wd-dashboard-course-link"
-                           href="#/Kanbas/Courses/1234/Home">
-                            CS5610 Website Development
-                        </a>
-                        <p className="wd-dashboard-course-link">
-                            Web technologies used to develop Website
-                        </p>
-                        <a href="#/Kanbas/Courses/1234/Home"> Go </a>
+                    <div className="wd-dashboard-courses col" style={{ width: "300px" }} >
+                        <div className="card">
+                            <img src="/images/web-dev.png" />
+                            <div className="card-body">
+                                <a className="wd-dashboard-course-link"
+                                   href="#/Kanbas/Courses/1234/Home"
+                                   style={{textDecoration: "none", color: "purple", fontWeight: "bold"}}>
+                                    CS5610 Web Development
+                                </a>
+                                <p className="wd-dashboard-course-link card-text">
+                                    Website Development
+                                </p>
+                                <a href="#/Kanbas/Courses/1234/Home" className="btn btn-primary"> Go </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div className="wd-dashboard-courses">
-                    <img src="/images/discrete-math.png" width={200}/>
-                    <div>
-                        <a className="wd-dashboard-course-link"
-                           href="#/Kanbas/Courses/1234/Home">
-                            CS5002 Discrete Structures and Math
-                        </a>
-                        <p className="wd-dashboard-course-link">
-                            Mathematical structures that form the foundation of CS
-                        </p>
-                        <a href="#/Kanbas/Courses/1234/Home"> Go </a>
+                    <div className="wd-dashboard-courses col" style={{ width: "300px" }} >
+                        <div className="card">
+                            <img src="/images/discrete-math.png"/>
+                            <div className="card-body">
+                                <a className="wd-dashboard-course-link"
+                                   href="#/Kanbas/Courses/1234/Home"
+                                   style={{textDecoration: "none", color: "darkorange", fontWeight: "bold"}}>
+                                    CS5002 Discrete Structures
+                                </a>
+                                <p className="wd-dashboard-course-link card-text">
+                                    CS Mathematical foundation
+                                </p>
+                                <a href="#/Kanbas/Courses/1234/Home" className="btn btn-primary"> Go </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div className="wd-dashboard-courses">
-                    <img src="/images/hci.png" width={200}/>
-                    <div>
-                        <a className="wd-dashboard-course-link"
-                           href="#/Kanbas/Courses/1234/Home">
-                            CS5340 Human Computer Interaction
-                        </a>
-                        <p className="wd-dashboard-course-link">
-                            Computer systems support human beings in day-to-day tasks
-                        </p>
-                        <a href="#/Kanbas/Courses/1234/Home"> Go </a>
+                    <div className="wd-dashboard-courses col" style={{ width: "300px" }} >
+                        <div className="card">
+                            <img src="/images/hci.jpg" />
+                            <div className="card-body">
+                                <a className="wd-dashboard-course-link"
+                                   href="#/Kanbas/Courses/1234/Home"
+                                   style={{textDecoration: "none", color: "blueviolet", fontWeight: "bold"}}>
+                                    CS5340 HCI
+                                </a>
+                                <p className="wd-dashboard-course-link card-text">
+                                    Human-computer Interaction
+                                </p>
+                                <a href="#/Kanbas/Courses/1234/Home" className="btn btn-primary"> Go </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div className="wd-dashboard-courses">
-                    <img src="/images/db.jpg" width={200}/>
-                    <div>
-                        <a className="wd-dashboard-course-link"
-                           href="#/Kanbas/Courses/1234/Home">
-                            CS5200 Database Management
-                        </a>
-                        <p className="wd-dashboard-course-link">
-                            MySQL Database Management and Implementation
-                        </p>
-                        <a href="#/Kanbas/Courses/1234/Home"> Go </a>
+                    <div className="wd-dashboard-courses col" style={{ width: "300px" }} >
+                        <div className="card">
+                            <img src="/images/db.png" />
+                            <div className="card-body">
+                                <a className="wd-dashboard-course-link"
+                                   href="#/Kanbas/Courses/1234/Home"
+                                   style={{textDecoration: "none", color: "crimson", fontWeight: "bold"}}>
+                                    Database Management
+                                </a>
+                                <p className="wd-dashboard-course-link card-text">
+                                    CS5200
+                                </p>
+                                <a href="#/Kanbas/Courses/1234/Home" className="btn btn-primary"> Go </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div className="wd-dashboard-courses">
-                    <img src="/images/nlp.jpg" width={200}/>
-                    <div>
-                        <a className="wd-dashboard-course-link"
-                           href="#/Kanbas/Courses/1234/Home">
-                            CS5760 Natural Language Processing
-                        </a>
-                        <p className="wd-dashboard-course-link">
-                            Modern neural network algorithms for the processing of linguistic information
-                        </p>
-                        <a href="#/Kanbas/Courses/1234/Home"> Go </a>
+                    <div className="wd-dashboard-courses col" style={{ width: "300px" }} >
+                        <div className="card">
+                            <img src="/images/nlp.jpg"/>
+                            <div className="card-body">
+                                <a className="wd-dashboard-course-link"
+                                   href="#/Kanbas/Courses/1234/Home"
+                                    style={{textDecoration: "none", color: "burlywood", fontWeight: "bold"}}>
+                                    CS5760 NLP
+                                </a>
+                                <p className="wd-dashboard-course-link card-text">
+                                  Natural Language Processing
+                                </p>
+                                <a href="#/Kanbas/Courses/1234/Home" className="btn btn-primary"> Go </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
