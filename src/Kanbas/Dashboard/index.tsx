@@ -1,18 +1,19 @@
 export default function Dashboard() {
     return (
         <div id="ws-dashboard">
-            <h1 id="wd-dashboard-title">Dashboard</h1> <hr />
-            <h2 id="wd-dashboard-pulished">Published Courses (12)</h2> <hr/>
-            <div id="wd-dashboard-courses" className ="row">
+            <h1 id="wd-dashboard-title">Dashboard</h1>
+            <hr/>
+            <h2 id="wd-dashboard-pulished">Published Courses (12)</h2>
+            <hr/>
+            <div id="wd-dashboard-courses" className="row">
                 <div className="row row-cols-1 row-cols-md-5 g-4">
-
-                    <div className="wd-dashboard-courses col" style={{ width: "300px" }} >
+                    <div className="wd-dashboard-courses col" style={{width: "300px"}}>
                         <div className="card">
-                            <img src="/images/reactjs.png" />
+                            <img src="/images/reactjs.png"/>
                             <div className="card-body">
                                 <a className="wd-dashboard-course-link"
                                    href="#/Kanbas/Courses/1234/Home"
-                                    style={{ textDecoration:"none", color: "navy", fontWeight:"bold" }}>
+                                   style={{textDecoration: "none", color: "navy", fontWeight: "bold"}}>
                                     CS1234 React JS
                                 </a>
                                 <p className="wd-dashboard-course-link card-text">
@@ -23,9 +24,9 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    <div className="wd-dashboard-courses col" style={{ width: "300px" }} >
+                    <div className="wd-dashboard-courses col" style={{width: "300px"}}>
                         <div className="card">
-                            <img src="/images/data-structure.png" />
+                            <img src="/images/data-structure.png"/>
                             <div className="card-body">
                                 <a className="wd-dashboard-course-link"
                                    href="#/Kanbas/Courses/1234/Home"
@@ -40,9 +41,9 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    <div className="wd-dashboard-courses col" style={{ width: "300px" }} >
+                    <div className="wd-dashboard-courses col" style={{width: "300px"}}>
                         <div className="card">
-                            <img src="/images/ood.png" />
+                            <img src="/images/ood.png"/>
                             <div className="card-body">
                                 <a className="wd-dashboard-course-link"
                                    href="#/Kanbas/Courses/1234/Home"
@@ -50,16 +51,16 @@ export default function Dashboard() {
                                     CS5004 OOD
                                 </a>
                                 <p className="wd-dashboard-course-link card-text">
-                                  Class-based program design
+                                    Class-based program design
                                 </p>
                                 <a href="#/Kanbas/Courses/1234/Home" className="btn btn-primary"> Go </a>
                             </div>
                         </div>
                     </div>
 
-                    <div className="wd-dashboard-courses col" style={{ width: "300px" }} >
+                    <div className="wd-dashboard-courses col" style={{width: "300px"}}>
                         <div className="card">
-                            <img src="/images/web-dev.png" />
+                            <img src="/images/web-dev.png"/>
                             <div className="card-body">
                                 <a className="wd-dashboard-course-link"
                                    href="#/Kanbas/Courses/1234/Home"
@@ -74,7 +75,7 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    <div className="wd-dashboard-courses col" style={{ width: "300px" }} >
+                    <div className="wd-dashboard-courses col" style={{width: "300px"}}>
                         <div className="card">
                             <img src="/images/discrete-math.png"/>
                             <div className="card-body">
@@ -91,9 +92,9 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    <div className="wd-dashboard-courses col" style={{ width: "300px" }} >
+                    <div className="wd-dashboard-courses col" style={{width: "300px"}}>
                         <div className="card">
-                            <img src="/images/hci.jpg" />
+                            <img src="/images/hci.jpg"/>
                             <div className="card-body">
                                 <a className="wd-dashboard-course-link"
                                    href="#/Kanbas/Courses/1234/Home"
@@ -108,9 +109,9 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    <div className="wd-dashboard-courses col" style={{ width: "300px" }} >
+                    <div className="wd-dashboard-courses col" style={{width: "300px"}}>
                         <div className="card">
-                            <img src="/images/db.png" />
+                            <img src="/images/db.png"/>
                             <div className="card-body">
                                 <a className="wd-dashboard-course-link"
                                    href="#/Kanbas/Courses/1234/Home"
@@ -125,22 +126,23 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    <div className="wd-dashboard-courses col" style={{ width: "300px" }} >
+                    <div className="wd-dashboard-courses col" style={{width: "300px"}}>
                         <div className="card">
                             <img src="/images/nlp.jpg"/>
                             <div className="card-body">
                                 <a className="wd-dashboard-course-link"
                                    href="#/Kanbas/Courses/1234/Home"
-                                    style={{textDecoration: "none", color: "burlywood", fontWeight: "bold"}}>
+                                   style={{textDecoration: "none", color: "burlywood", fontWeight: "bold"}}>
                                     CS5760 NLP
                                 </a>
                                 <p className="wd-dashboard-course-link card-text">
-                                  Natural Language Processing
+                                    Natural Language Processing
                                 </p>
                                 <a href="#/Kanbas/Courses/1234/Home" className="btn btn-primary"> Go </a>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
