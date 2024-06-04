@@ -8,8 +8,8 @@ export default function Kanbas() {
     return (
         <div id="wd-kanbas" className="h-100">
             <div className="d-flex h-100">
-                <div className="d-done d-md-block bg-black wd-width-110px">
-                    <KanbasNavigation />
+                <div className="d-none d-md-block bg-black wd-width-110px h-100">
+                    <KanbasNavigation/>
                 </div>
                 <div className="flex-fill p-4">
                     <Routes>
