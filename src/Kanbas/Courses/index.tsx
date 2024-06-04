@@ -5,6 +5,7 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import {Navigate, Route, Routes} from "react-router";
 import {FaAlignJustify} from "react-icons/fa";
+import Grades from "./Grades";
 
 export default function Courses() {
     return (
@@ -22,6 +23,7 @@ export default function Courses() {
                         <Route path="Home" element={<Home/>}/>
                         <Route path="Modules" element={<Modules/>}/>
                         <Route path="Assignments" element={<Assignments/>}/>
+                        <Route path="Grades" element={<Grades/>}/>
                         <Route path="Assignments/:id" element={<AssignmentEditor/>}/>
                     </Routes>
                 </div>
