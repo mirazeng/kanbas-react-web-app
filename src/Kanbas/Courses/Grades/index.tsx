@@ -66,7 +66,7 @@ export default function Grades() {
                             <tr>
                                 <td>Jane Adams</td>
                                 <td>100%</td>
-                                <td>96.67%</td>
+                                <td>96.65%</td>
                                 <td>92.18%</td>
                                 <td>66.22%</td>
                             </tr>
