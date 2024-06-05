@@ -30,13 +30,13 @@ export default function ModulesControls() {
                     </li>
                     <li>
                         <a id="wd-unpublish-all-modules-and-items" className="dropdown-item" href="#">
-                            <FiSlash className="position-relative me-2" style={{ bottom: "1px" }} />
+                            <FiSlash className="position-relative me-1" style={{ bottom: "1px" }} />
                             Unpublish all modules and items
                         </a>
                     </li>
                     <li>
                         <a id="wd-unpublish-modules-only" className="dropdown-item" href="#">
-                            <FiSlash className="position-relative me-2" style={{ bottom: "1px" }} />
+                            <FiSlash className="position-relative me-1" style={{ bottom: "1px" }} />
                             Unpublish modules only
                         </a>
                     </li>

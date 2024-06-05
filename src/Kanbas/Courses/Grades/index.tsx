@@ -5,6 +5,7 @@ import {MdOutlineKeyboardArrowDown} from "react-icons/md";
 
 export default function Grades() {
     return (
+
         <div id="wd-grades">
             <br/>
             <GradesControls/>
@@ -15,10 +16,20 @@ export default function Grades() {
                         Student Names
                     </label>
                     <div className="input-group">
-                            <span className="input-group-text">
+                        {/*<span className="input-group-text">
+                                <i className="bi bi-search"/>
+                            </span>*/}
+                        {/*<select className="form-select input-group-text"*/}
+                        {/*        defaultValue=""*/}
+                        {/*style={{textAlign:'left', paddingLeft:'12px'}}>*/}
+                        {/*    <option value="" disabled className="float-start">Search Students</option>*/}
+                        {/*</select>*/}
+                        <span className="input-group-text">
                                 <HiMagnifyingGlass/>
                             </span>
-                        <input id="wd-search-student-name" className="form-control" type="text"
+                        <input type="text"
+                               className="form-control"
+                               id="wd-search-student-name"
                                placeholder="Search Students"/>
                         <span className="input-group-text">
                                 <MdOutlineKeyboardArrowDown/>
@@ -51,55 +62,57 @@ export default function Grades() {
                 </div>
 
                 <div className="col-12">
-                    <div className="table-responsive">
-                        <table className="table table-bordered">
+                    <div className="table-responsive-sm">
+                        <table className="table table-striped table-bordered">
                             <thead>
                             <tr>
-                                <th scope="col">Student Name</th>
-                                <th scope="col">A1 SETUP<br/>Out of 100</th>
-                                <th scope="col">A2 HTML<br/>Out of 100</th>
-                                <th scope="col">A3 CSS<br/>Out of 100</th>
-                                <th scope="col">A4 BOOTSTRAP<br/>Out of 100</th>
+                                <th>Student Name</th>
+                                <th>A1 SETUP<br/>Out of 100</th>
+                                <th>A2 HTML<br/>Out of 100</th>
+                                <th>A3 CSS<br/>Out of 100</th>
+                                <th>A4 BOOTSTRAP<br/>Out of 100</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td>Jane Adams</td>
+                                <td className="text-danger">Jane Adams</td>
                                 <td>100%</td>
                                 <td>96.65%</td>
                                 <td>92.18%</td>
                                 <td>66.22%</td>
                             </tr>
                             <tr>
-                                <td>Christina Allen</td>
+                                <td className="text-danger">Christina Allen</td>
                                 <td>100%</td>
                                 <td>100%</td>
                                 <td>100%</td>
                                 <td>100%</td>
                             </tr>
                             <tr>
-                                <td>Sameera Ansari</td>
+                                <td className="text-danger">Sameera Ansari</td>
                                 <td>100%</td>
                                 <td>100%</td>
                                 <td>100%</td>
                                 <td>100%</td>
                             </tr>
                             <tr>
-                                <td>Han Bao</td>
+                                <td className="text-danger">Han Bao</td>
                                 <td>100%</td>
                                 <td>100%</td>
-                                <td>88.03%</td>
+                                <td>
+                                    <input className="form-control" placeholder="88.03%"/>
+                                </td>
                                 <td>100%</td>
                             </tr>
                             <tr>
-                                <td>Mahi Sai Srinivas Bobbili</td>
+                                <td className="text-danger">Mahi Sai Srinivas Bobbili</td>
                                 <td>100%</td>
                                 <td>96.67%</td>
                                 <td>98.37%</td>
                                 <td>98.99%</td>
                             </tr>
                             <tr>
-                                <td>Siran Cao</td>
+                                <td className="text-danger">Siran Cao</td>
                                 <td>100%</td>
                                 <td>100%</td>
                                 <td>100%</td>
@@ -107,6 +120,7 @@ export default function Grades() {
                             </tr>
                             </tbody>
                         </table>
+
                     </div>
                 </div>
             </div>

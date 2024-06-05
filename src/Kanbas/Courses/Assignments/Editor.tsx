@@ -124,7 +124,7 @@ export default function AssignmentEditor() {
                 </div>
 
 
-                <div className="row mb-3 ps-2">
+                <div className="row mb-4 ps-2">
                     <div className="col text-end">
                         <label htmlFor="wd-assign" className="col-form-label">
                             Assign
