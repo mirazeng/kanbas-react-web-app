@@ -62,7 +62,7 @@ export default function Lab2() {
                 <h3 className="wd-fg-color-blue">Foreground color</h3>
                 <p className="wd-fg-color-red">
                     The test in this paragraph is red but
-                    <span className="wd-fg-color-green">this text is green</span>
+                    <span className="wd-fg-color-green"> this text is green</span>
                 </p>
             </div>
 
@@ -71,7 +71,7 @@ export default function Lab2() {
                 <p className="wd-bg-color-red wd-fg-color-black">
                     This background of this paragraph is red but
                     <span className="wd-bg-color-green wd-fg-color-white">
-                        the background of this text is green and the foreground white
+                         the background of this text is green and the foreground white
                     </span>
                 </p>
             </div>

@@ -18,7 +18,7 @@ export default function Assignments() {
                         <AssignmentControlButtons/>
                     </div>
 
-                    <ul className="wd-assignmnet-list list-group rounded-0" style={{borderLeft: '4px solid green'}}>
+                    <ul className="wd-assignmnet-list list-group rounded-0" style={{borderLeft: '5px solid green'}}>
                         <li className="wd-assignment-list-item list-group-item p-3 ps-1">
                             <div className="d-flex align-items-center flex-grow-1">
                                 <BsGripVertical className="me-2 fs-3"/>
@@ -28,11 +28,19 @@ export default function Assignments() {
                                    href="#/Kanbas/Courses/1234/Assignments/123">
                                     A1
                                 </a>
-                                <div style={{marginLeft: '0'}}>
-                                    <div>Multiple Modules | Not available until May 6 at 12:00am |</div>
-                                    <div>Due May 13 at 11:59pm | 100 pts</div>
-                                </div>
-                            </span>
+                                    <div className="ms-0">
+                                        <div className="d-flex align-items-center">
+                                            <div className="text-danger">Multiple Modules</div>
+                                            <div className="ms-2">|</div>
+                                            <div className="fw-bold ms-2"> Not available until </div>
+                                            <div className="ms-2">May 6 at 12:00am |</div>
+                                        </div>
+                                        <div className="d-flex align-items-center">
+                                            <div className="fw-bold">Due</div>
+                                            <div className="ms-2">May 13 at 11:59pm | 100 pts</div>
+                                        </div>
+                                    </div>
+                                </span>
                                 <div className="ms-auto">
                                     <HomeworkControlButtons/>
                                 </div>
@@ -48,10 +56,18 @@ export default function Assignments() {
                                    href="#/Kanbas/Courses/1234/Assignments/123">
                                     A2
                                 </a>
-                                <div style={{marginLeft: '0'}}>
-                                    <div> Multiple Modules | Not available until May 13 at 12:00am |</div>
-                                    <div>Due May 20 at 11:59pm | 100 pts</div>
-                                </div>
+                                    <div className="ms-0">
+                                        <div className="d-flex align-items-center">
+                                            <div className="text-danger">Multiple Modules</div>
+                                            <div className="ms-2">|</div>
+                                            <div className="fw-bold ms-2"> Not available until </div>
+                                            <div className="ms-2">May 13 at 12:00am |</div>
+                                        </div>
+                                        <div className="d-flex align-items-center">
+                                            <div className="fw-bold">Due</div>
+                                            <div className="ms-2">May 20 at 11:59pm | 100 pts</div>
+                                        </div>
+                                    </div>
                             </span>
                                 <div className="ms-auto">
                                     <HomeworkControlButtons/>
@@ -67,18 +83,25 @@ export default function Assignments() {
                                 <a className="wd-assignment-list-item fw-bold"
                                    href="#/Kanbas/Courses/1234/Assignments/123">
                                 A3
-                            </a>
-                                <div style={{marginLeft: '0'}}>
-                                    <div>Multiple Modules | Not available until May 20 at 12:00am |</div>
-                                    <div>Due May 27 at 11:59pm | 100 pts</div>
-                                </div>
-                            </span>
+                                </a>
+                                    <div className="ms-0">
+                                        <div className="d-flex align-items-center">
+                                            <div className="text-danger">Multiple Modules</div>
+                                            <div className="ms-2">|</div>
+                                            <div className="fw-bold ms-2"> Not available until </div>
+                                            <div className="ms-2">May 20 at 12:00am |</div>
+                                        </div>
+                                        <div className="d-flex align-items-center">
+                                            <div className="fw-bold">Due</div>
+                                            <div className="ms-2">May 27 at 11:59pm | 100 pts</div>
+                                        </div>
+                                    </div>
+                                </span>
                                 <div className="ms-auto">
                                     <HomeworkControlButtons/>
                                 </div>
                             </div>
                         </li>
-
                     </ul>
                 </li>
             </ul>

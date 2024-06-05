@@ -6,7 +6,7 @@ export default function GradesControls() {
         <div id="wd-grades-controls" className="float-end text-nowrap">
             <button id="wd-file-import"
                     className="btn btn-secondary text-nowrap me-2">
-                <FaFileImport className="me-1 fs-5"/>
+                <FaFileImport className="me-2 fs-5"/>
                 Import
             </button>
 
@@ -16,19 +16,18 @@ export default function GradesControls() {
                                    dropdown-toggle"
                         type="button"
                         data-bs-toggle="dropdown">
-                    <FaFileExport className="me-1 fs-5"/>
+                    <FaFileExport className="me-2 fs-5"/>
                     Export
                 </button>
-                {/*<ul className="dropdown-menu">*/}
-                {/*    <a id="wd-export-grades" className="dropdown-item" href="#">*/}
-                {/*        <FaFileExport className="me-2"/>*/}
-                {/*        Export Grades*/}
-                {/*    </a>*/}
-                {/*</ul>*/}
+                <ul className="dropdown-menu">
+                    <a id="wd-export-grades" className="dropdown-item" href="#">
+                        Export
+                    </a>
+                </ul>
             </div>
 
             <button className="btn btn-secondary justify-content-around">
-                <FaGear className="me-1 fs-5"/>
+                <FaGear className="me-0 fs-5"/>
             </button>
         </div>
     );
