@@ -46,7 +46,7 @@ export default function TOC() {
                 </a>
             </li>
             <li className="nav-item">
-                <a id="wd-k" href="https://github.com/mirazeng/kanbas-react-web-app" className="nav-link">
+                <a id="wd-github" href="https://github.com/mirazeng/kanbas-react-web-app" className="nav-link">
                     Miranda's GitHub
                 </a>
             </li>
