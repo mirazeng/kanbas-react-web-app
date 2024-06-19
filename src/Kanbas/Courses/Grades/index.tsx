@@ -2,11 +2,46 @@ import GradesControls from "./GradesControls";
 import {HiMagnifyingGlass} from "react-icons/hi2";
 import {FiFilter} from "react-icons/fi";
 import {MdOutlineKeyboardArrowDown} from "react-icons/md";
+import * as db from "../../Database";
+import {useParams} from "react-router";
 
 export default function Grades() {
-    return (
+    const {cid} = useParams();
+    const enrollments = db.enrollments;
+    const users = db.users;
+    const grades = db.grades;
 
-        <div id="wd-grades">
+    const getGradesData = (enrollments: any[], users: any[], grades: any[]) => {
+        let result = []; //
+
+        let enrolledStudents = enrollments.filter((enrollment) => enrollment.course === cid);
+
+        console.log("DEBUG: enrolled students: ", enrolledStudents);
+
+        // For each student enrolled, use the "user" field to find matching entries from grades.json and users.json
+        for (let i = 0; i < enrolledStudents.length; i++) {
+            let enrolled = enrolledStudents[i];
+            let enrolledID = enrolled.user;
+            let enrolledFirstName = users.find((user) => user._id === enrolledID).firstName;
+            let enrolledLastName = users.find((user) => user._id === enrolledID).lastName;
+            let studentName = enrolledFirstName + " " + enrolledLastName;
+
+            let studentGrades = grades.filter((grade) => grade.student === enrolledID);
+
+            let studentData = {
+                studentID: enrolledID, studentName: studentName, grades: studentGrades
+            };
+
+            result.push(studentData);
+        }
+        return result;
+        console.log("DEBUG: result: ", result);
+    }
+
+    const target_data = getGradesData(enrollments, users, grades);
+
+
+    return (<div id="wd-grades">
             <br/>
             <GradesControls/>
             <br/> <br/>
@@ -16,14 +51,14 @@ export default function Grades() {
                         Student Names
                     </label>
                     <div className="input-group">
-                        {/*<span className="input-group-text">
-                                <i className="bi bi-search"/>
-                            </span>*/}
-                        {/*<select className="form-select input-group-text"*/}
-                        {/*        defaultValue=""*/}
-                        {/*style={{textAlign:'left', paddingLeft:'12px'}}>*/}
-                        {/*    <option value="" disabled className="float-start">Search Students</option>*/}
-                        {/*</select>*/}
+                        {/*/!*<span className="input-group-text">*/}
+                        {/*        <i className="bi bi-search"/>*/}
+                        {/*    </span>*!/*/}
+                        {/*/!*<select className="form-select input-group-text"*!/*/}
+                        {/*/!*        defaultValue=""*!/*/}
+                        {/*/!*style={{textAlign:'left', paddingLeft:'12px'}}>*!/*/}
+                        {/*/!*    <option value="" disabled className="float-start">Search Students</option>*!/*/}
+                        {/*/!*</select>*!/*/}
                         <span className="input-group-text">
                                 <HiMagnifyingGlass/>
                             </span>
@@ -65,16 +100,22 @@ export default function Grades() {
                     <div className="table-responsive-sm">
                         <table className="table table-striped table-bordered">
                             <thead>
+
                             <tr>
                                 <th>Student Name</th>
-                                <th>A1 SETUP<br/>Out of 100</th>
-                                <th>A2 HTML<br/>Out of 100</th>
-                                <th>A3 CSS<br/>Out of 100</th>
-                                <th>A4 BOOTSTRAP<br/>Out of 100</th>
+                                <th> A101<br/> Out of 100</th>
+                                <th> A102<br/> Out of 100</th>
                             </tr>
                             </thead>
+
                             <tbody>
-                            <tr>
+                            {target_data.map((student) => (<tr>
+                                    <td className={"text-danger"}>{student.studentName}
+                                    </td>
+                                    {student.grades.map((grade) => (<td>{grade.grade}</td>))}
+                                </tr>))}
+
+                            {/*<tr>
                                 <td className="text-danger">Jane Adams</td>
                                 <td>100%</td>
                                 <td>96.65%</td>
@@ -117,13 +158,12 @@ export default function Grades() {
                                 <td>100%</td>
                                 <td>100%</td>
                                 <td>100%</td>
-                            </tr>
+                            </tr>*/}
                             </tbody>
                         </table>
 
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        </div>);
 }

@@ -15,14 +15,12 @@ export default function CoursesNavigation() {
         {label: "Grades", path: `/Kanbas/Courses/${cid}/Grades`},
     ];
     return (
-        <div id="wd-courses-navigation" className="list-group fs-5 rounded-0">
+        <div id="wd-courses-navigation" className="border-0 fs-5 rounded-0 p-3">
 
             {links.map((link) => (
                 <Link key={link.path} to={link.path}
-                      className={`list-group-item border-0 text-danger 
-                                  ${pathname.includes(link.label) 
-                          ? "text-black bg-white" : "text-danger bg-white"}`}>
-                    <br/>
+                      className={`list-group-item p-2
+                                  ${pathname.includes(link.label) ? "active" : "text-danger"}`}>
                     {link.label}
                 </Link>
             ))}
