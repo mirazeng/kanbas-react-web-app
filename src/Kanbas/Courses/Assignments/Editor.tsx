@@ -1,14 +1,22 @@
+import {useParams} from "react-router";
+import * as db from "../../Database";
 
 export default function AssignmentEditor() {
+    const {cid, aid} = useParams(); // id stands for assignment id (_id)
+    console.log("Debug: assignment editor: cid: ", cid, " || aid is:", aid);
+    const assignments = db.assignments;
+
     return (
         <div id='wd-assignment-editor'>
             <div className="col mb-3 ps-2">
                 <label htmlFor="wd-name" className="row-sm-5 row-form-label">
                     Assignment Name
                 </label>
-                <div className="row-sm-5">
-                    <input id="wd-name" className="form-control" value="A1"/>
-                </div>
+                {assignments.filter((assignment: any) => assignment._id === aid).map((assignment) => (
+                    <div className="row-sm-5">
+                        <input id="wd-name" className="form-control" value={assignment.title}/>
+                    </div>
+                ))}
             </div>
             <br/>
             <div id="wd-description">
@@ -37,13 +45,16 @@ export default function AssignmentEditor() {
                             Points
                         </label>
                     </div>
-                    <div className="col">
-                        <input id="wd-points" className="form-control" value={100}/>
-                    </div>
+                    {assignments.filter((assignment: any) => assignment._id === aid).map((assignment) => (
+                        <div className="col">
+                            <input id="wd-points" className="form-control" value={assignment.points}/>
+                        </div>
+                    ))}
+
                 </div>
 
                 <div className="row mb-3 ps-2">
-                    <div className="col text-end">
+                <div className="col text-end">
                         <label htmlFor="wd-group" className="col-form-label">
                             Assignment Group
                         </label>
@@ -131,59 +142,67 @@ export default function AssignmentEditor() {
                         </label>
                     </div>
 
+
                     <div className="col">
                         <div className="card">
                             <div className="card-body">
-                                <div className="col">
-                                    <div className="col">
-                                        <label htmlFor="wd-assign-to" className="col-form-label">
-                                            Assign to
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <input id="wd-assign-to" className="form-control" value="everyone"/>
-                                    </div>
-                                </div>
-                                <br/>
-                                <div className="col">
-                                    <div className="col">
-                                        <label htmlFor="wd-due-date"
-                                               className="col-form-label">
-                                            Due
-                                        </label>
-                                    </div>
-                                    <div className="col">
-                                        <input id="wd-due-date"
-                                               className="form-control"
-                                               type="date"
-                                               value="2024-05-13"/>
-                                    </div>
-                                    <br/>
-                                </div>
-                                <div className="col text-nowrap">
-                                    <div className="row">
+                                {assignments.filter((assignment: any) => assignment._id === aid).map((assignment) => (
+                                    <>
                                         <div className="col">
-                                            <label htmlFor="wd-available-from"
-                                                   className="col-form-label">
-                                                Available from
-                                            </label>
-                                            <input id="wd-available-from"
-                                                   className="form-control"
-                                                   type="date"
-                                                   value="2024-05-06"/>
+                                            <div className="col">
+                                                <label htmlFor="wd-assign-to" className="col-form-label">
+                                                    Assign to
+                                                </label>
+                                            </div>
+                                            <div className="col">
+                                                <input id="wd-assign-to" className="form-control"
+                                                       value={"TODO: Add in Database"}/>
+                                            </div>
                                         </div>
+                                        <br/>
                                         <div className="col">
-                                            <label htmlFor="wd-available-until"
-                                                   className="col-form-label">
-                                                Until
-                                            </label>
-                                            <input id="wd-available-until"
-                                                   className="form-control"
-                                                   type="date"
-                                                   value="2024-05-20"/>
+                                            <div className="col">
+                                                <label htmlFor="wd-due-date"
+                                                       className="col-form-label">
+                                                    Due
+                                                </label>
+                                            </div>
+                                            <div className="col">
+                                                <input id="wd-due-date"
+                                                       className="form-control"
+                                                       type="date"
+                                                       value={assignment.due}
+                                                />
+                                            </div>
+                                            <br/>
                                         </div>
-                                    </div>
-                                </div>
+                                        <div className="col text-nowrap">
+                                            <div className="row">
+                                                <div className="col">
+                                                    <label htmlFor="wd-available-from"
+                                                           className="col-form-label">
+                                                        Available from
+                                                    </label>
+                                                    <input id="wd-available-from"
+                                                           className="form-control"
+                                                           type="date"
+                                                           value={assignment.available}/>
+                                                </div>
+                                                <div className="col">
+                                                    <label htmlFor="wd-available-until"
+                                                           className="col-form-label">
+                                                        Until
+                                                    </label>
+                                                    <input id="wd-available-until"
+                                                           className="form-control"
+                                                           type="date"
+                                                           value={assignment.due}/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </>
+                                ))}
+
                             </div>
                         </div>
                     </div>
