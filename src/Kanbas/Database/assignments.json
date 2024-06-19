@@ -5,7 +5,10 @@
     "course": "RS101",
     "available": "May 6 at 12:00am",
     "due": "May 13 at 11:59pm",
-    "points": "100"
+    "points": "100",
+    "due_date": "2019-05-13",
+    "available_from_date": "2019-05-06",
+    "until_date": "2019-05-13"
   },
   {
     "_id": "A102",
@@ -13,7 +16,10 @@
     "course": "RS101",
     "available": "May 13 at 12:00am",
     "due": "May 20 at 11:59pm",
-    "points": "100"
+    "points": "100",
+    "due_date": "2019-05-20",
+    "available_from_date": "2019-05-13",
+    "until_date": "2019-05-20"
   },
   {
     "_id": "A103",
@@ -21,7 +27,10 @@
     "course": "RS101",
     "available": "May 20 at 12:00am",
     "due": "May 27 at 11:59pm",
-    "points": "100"
+    "points": "100",
+    "due_date": "2019-05-27",
+    "available_from_date": "2019-05-20",
+    "until_date": "2019-05-27"
   },
   {
     "_id": "A201",
@@ -29,7 +38,10 @@
     "course": "RS102",
     "available": "May 27 at 12:00am",
     "due": "June 4 at 11:59pm",
-    "points": "100"
+    "points": "100",
+    "due_date": "2019-06-04",
+    "available_from_date": "2019-05-27",
+    "until_date": "2019-06-04"
   },
   {
     "_id": "A202",
@@ -37,7 +49,10 @@
     "course": "RS102",
     "available": "Jun 4 at 12:00am",
     "due": "Jun 11 at 11:59pm",
-    "points": "100"
+    "points": "100",
+    "due_date": "2019-06-11",
+    "available_from_date": "2019-06-04",
+    "until_date": "2019-06-11"
   },
   {
     "_id": "A203",
@@ -45,7 +60,10 @@
     "course": "RS102",
     "available": "Jun 11 at 12:00am",
     "due": "Jun 18 at 11:59pm",
-    "points": "100"
+    "points": "100",
+    "due_date": "2019-06-18",
+    "available_from_date": "2019-06-11",
+    "until_date": "2019-06-18"
   },
   {
     "_id": "A301",
@@ -53,7 +71,10 @@
     "course": "RS103",
     "available": "Jun 18 at 12:00am",
     "due": "Jun 25 at 11:59pm",
-    "points": "100"
+    "points": "100",
+    "due_date": "2019-06-25",
+    "available_from_date": "2019-06-18",
+    "until_date": "2019-06-25"
   },
   {
     "_id": "A302",
@@ -61,7 +82,10 @@
     "course": "RS103",
     "available": "Jun 25 at 12:00am",
     "due": "July 2 at 11:59pm",
-    "points": "100"
+    "points": "100",
+    "due_date": "2019-07-02",
+    "available_from_date": "2019-06-25",
+    "until_date": "2019-07-02"
   },
   {
     "_id": "A303",
@@ -69,6 +93,9 @@
     "course": "RS103",
     "available": "July 2 at 12:00am",
     "due": "July 9 at 11:59pm",
-    "points": "100"
+    "points": "100",
+    "due_date": "2019-07-09",
+    "available_from_date": "2019-07-02",
+    "until_date": "2019-07-09"
   }
 ]
