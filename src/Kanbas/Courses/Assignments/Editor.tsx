@@ -1,5 +1,6 @@
 import {useParams} from "react-router";
 import * as db from "../../Database";
+import {courses} from "../../Database";
 
 export default function AssignmentEditor() {
     const {cid, aid} = useParams(); // id stands for assignment id (_id)
@@ -21,18 +22,13 @@ export default function AssignmentEditor() {
             <br/>
             <div id="wd-description">
                 <div className="mb-3 row ps-2">
+                    {assignments.filter((assignment: any) => assignment._id === aid).map((assignment) => (
                     <div className="row-cols-sm-5 row-form-label">
                         <textarea className="form-control" id="wd-description" rows={15}>
-                            The assignment is available online
-                            Submit a link to the landing page of your web application running on Netlify
-                            The landing page should include
-                            the following: Your full name and section Links
-                            to each of the lab assignments Link to the Kanbas
-                            application Links to all relevant source code repositories
-                            The Kanbas application should include a link to navigate
-                            back to the landing page.
+                            {assignment.title}
                         </textarea>
                     </div>
+                    ))}
                 </div>
             </div>
             <br/>
@@ -134,14 +130,12 @@ export default function AssignmentEditor() {
                     </div>
                 </div>
 
-
                 <div className="row mb-4 ps-2">
                     <div className="col text-end">
                         <label htmlFor="wd-assign" className="col-form-label">
                             Assign
                         </label>
                     </div>
-
 
                     <div className="col">
                         <div className="card">
@@ -156,7 +150,7 @@ export default function AssignmentEditor() {
                                             </div>
                                             <div className="col">
                                                 <input id="wd-assign-to" className="form-control"
-                                                       value={"TODO: Add in Database"}/>
+                                                       value={" "}/>
                                             </div>
                                         </div>
                                         <br/>
@@ -171,7 +165,7 @@ export default function AssignmentEditor() {
                                                 <input id="wd-due-date"
                                                        className="form-control"
                                                        type="date"
-                                                       value={assignment.due}
+                                                       value={assignment.due_date}
                                                 />
                                             </div>
                                             <br/>
@@ -186,7 +180,7 @@ export default function AssignmentEditor() {
                                                     <input id="wd-available-from"
                                                            className="form-control"
                                                            type="date"
-                                                           value={assignment.available}/>
+                                                           value={assignment.available_from_date}/>
                                                 </div>
                                                 <div className="col">
                                                     <label htmlFor="wd-available-until"
@@ -196,13 +190,12 @@ export default function AssignmentEditor() {
                                                     <input id="wd-available-until"
                                                            className="form-control"
                                                            type="date"
-                                                           value={assignment.due}/>
+                                                           value={assignment.due_date}/>
                                                 </div>
                                             </div>
                                         </div>
                                     </>
                                 ))}
-
                             </div>
                         </div>
                     </div>
