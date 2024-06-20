@@ -25,7 +25,7 @@ export default function AssignmentEditor() {
                     {assignments.filter((assignment: any) => assignment._id === aid).map((assignment) => (
                     <div className="row-cols-sm-5 row-form-label">
                         <textarea className="form-control" id="wd-description" rows={15}>
-                            {assignment.title}
+                            {assignment.description}
                         </textarea>
                     </div>
                     ))}
