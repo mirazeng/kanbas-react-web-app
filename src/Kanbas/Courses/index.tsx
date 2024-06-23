@@ -11,6 +11,7 @@ import Grades from "./Grades";
 export default function Courses() {
 
     const {cid} = useParams();
+
     const course = courses.find((course) => course._id === cid);
     const {pathname} = useLocation();
 
