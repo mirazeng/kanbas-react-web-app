@@ -21,7 +21,7 @@ export default function Modules() {
                 moduleName={moduleName}
                 setModuleName={setModuleName}
                 addModule={() => {
-                    dispatch(addModule({ name: moduleName, course: cid }));
+                    dispatch(addModule({name: moduleName, course: cid}));
                     setModuleName("");
                 }}
             /> <br/><br/><br/>
@@ -31,15 +31,15 @@ export default function Modules() {
                     .map((m: any) => (
                         <li key={m._id} className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
                             <div className="wd-title p-3 ps-2 bg-secondary">
-                                <BsGripVertical className="me-2 fs-3" />
+                                <BsGripVertical className="me-2 fs-3"/>
                                 {!m.editing && m.name}
                                 {m.editing && (
                                     <input
                                         className="form-control w-50 d-inline-block"
-                                        onChange={(e) => dispatch(updateModule({ ...m, name: e.target.value }))}
+                                        onChange={(e) => dispatch(updateModule({...m, name: e.target.value}))}
                                         onKeyDown={(e) => {
                                             if (e.key === "Enter") {
-                                                dispatch(updateModule({ ...m, editing: false }));
+                                                dispatch(updateModule({...m, editing: false}));
                                             }
                                         }}
                                         value={m.name}
@@ -52,12 +52,12 @@ export default function Modules() {
                                 />
                             </div>
                             {m.lessons && (
-                                <ul className="wd-lessons list-group rounded-0" style={{ borderLeft: '5px solid green' }}>
+                                <ul className="wd-lessons list-group rounded-0" style={{borderLeft: '5px solid green'}}>
                                     {m.lessons.map((lesson: any) => (
                                         <li key={lesson._id} className="wd-lesson list-group-item p-3 ps-1">
-                                            <BsGripVertical className="me-2 fs-3" />
+                                            <BsGripVertical className="me-2 fs-3"/>
                                             {lesson.name}
-                                            <LessonControlButtons />
+                                            <LessonControlButtons/>
                                         </li>
                                     ))}
                                 </ul>
@@ -94,90 +94,4 @@ export default function Modules() {
     //                 </li>))}
     //     </ul>
     // </div>);
-}
-
-{/*<li className="wd-lesson list-group-item p-3 ps-1">*/
-}
-{/*    <BsGripVertical className="me-2 fs-3"/>*/
-}
-{/*    <span className="wd-title">Introduction to the course</span>*/
-}
-{/*    <LessonControlButtons/>*/
-}
-{/*</li>*/
-}
-{/*<li className="wd-lesson list-group-item p-3 ps-1">*/
-}
-{/*    <BsGripVertical className="me-2 fs-3"/>*/
-}
-{/*    <span className="wd-title">Learn what is Web Development</span>*/
-}
-{/*    <LessonControlButtons/>*/
-}
-{/*</li>*/
-}
-{/*<li className="wd-lesson list-group-item p-3 ps-1">*/
-}
-{/*    <BsGripVertical className="me-2 fs-3"/>*/
-}
-{/*    <span className="wd-title">LESSON 1</span>*/
-}
-{/*    <LessonControlButtons/>*/
-}
-{/*</li>*/
-}
-{/*<li className="wd-lesson list-group-item p-3 ps-1">*/
-}
-{/*    <BsGripVertical className="me-2 fs-3"/>*/
-}
-{/*    <span className="wd-title">LESSON 2</span>*/
-}
-{/*    <LessonControlButtons/>*/
-}
-{/*</li>*/
-}
-
-{/*<li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">*/
-}
-{/*    <div className="wd-title p-3 ps-2 bg-secondary">*/
-}
-{/*        <BsGripVertical className="mr-2 fs-3"/>*/
-}
-{/*        Week 2*/
-}
-{/*        <ModuleControlButtons/>*/
-}
-{/*    </div>*/
-}
-{/*    <ul className="wd-lessons list-group rounded-0" style={{borderLeft: '5px solid green'}}>*/
-}
-{/*        <li className="wd-lesson list-group-item p-3 ps-1">*/
-}
-{/*            <BsGripVertical className="me-2 fs-3"/>*/
-}
-{/*            <span className="wd-title">LEARNING OBJECTIVES</span>*/
-}
-{/*            <LessonControlButtons/>*/
-}
-{/*        </li>*/
-}
-{/*        <li className="wd-lesson list-group-item p-3 ps-1">*/
-}
-{/*            <BsGripVertical className="me-2 fs-3"/>*/
-}
-{/*            <span className="wd-title">LESSON 1</span>*/
-}
-{/*            <LessonControlButtons/>*/
-}
-{/*        </li>*/
-}
-{/*        <li className="wd-lesson list-group-item p-3 ps-1">*/
-}
-{/*            <BsGripVertical className="me-2 fs-3"/>*/
-}
-{/*            <span className="wd-title">LESSON 2</span>*/
-}
-{/*            <LessonControlButtons/>*/
-}
-{/*        </li>*/
 }

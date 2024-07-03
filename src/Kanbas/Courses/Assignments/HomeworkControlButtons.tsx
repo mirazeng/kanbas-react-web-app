@@ -1,12 +1,12 @@
 import React from 'react';
-import { IoEllipsisVertical } from "react-icons/io5";
-import { FaCheckCircle, FaCircle, FaTrash } from "react-icons/fa";
+import {IoEllipsisVertical} from "react-icons/io5";
+import {FaCheckCircle, FaCircle, FaTrash} from "react-icons/fa";
 
 interface HomeworkControlButtonsProps {
     onDeleteClick: () => void;
 }
 
-export default function HomeworkControlButtons({ onDeleteClick }: HomeworkControlButtonsProps) {
+export default function HomeworkControlButtons({onDeleteClick}: HomeworkControlButtonsProps) {
     return (
         <div className="float-end">
             <span className="me-3 position-relative">
