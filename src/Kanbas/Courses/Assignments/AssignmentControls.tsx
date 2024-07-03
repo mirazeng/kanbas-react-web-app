@@ -1,7 +1,11 @@
 import {FaPlus} from "react-icons/fa6";
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import {Link} from "react-router-dom";
+import {useParams} from "react-router";
 
 export default function AssignmentControls() {
+    const {cid} = useParams();
+
     return (
         <div id="wd-assignment-controls" className="d-flex justify-content-between">
             <div className="wd-search-assignment input-group me-1">
@@ -22,11 +26,13 @@ export default function AssignmentControls() {
                     </button>
                 </div>
                 <div>
-                    <button id="wd-add-assignment"
-                            className="btn btn-lg btn-danger me-1">
+                    {/*  + Assignment button should navigate to Assignment Editor with empty fields */}
+
+                    <a id="wd-add-assignment"
+                            className="btn btn-lg btn-danger me-1" href={`#/Kanbas/Courses/${cid}/Assignments/new`}>
                         <FaPlus className="position-relative me-1" style={{bottom: "1px"}}/>
                         Assignment
-                    </button>
+                    </a>
                 </div>
             </div>
 

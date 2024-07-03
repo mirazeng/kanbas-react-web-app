@@ -1,56 +1,116 @@
-import {useParams} from "react-router";
-import * as db from "../../Database";
-import {courses} from "../../Database";
+import React from "react";
+import {useParams, useNavigate} from "react-router";
+import {useSelector, useDispatch} from "react-redux";
+import {addAssignment, updateAssignment} from "./reducer";
 
 export default function AssignmentEditor() {
+
     const {cid, aid} = useParams(); // id stands for assignment id (_id)
     console.log("Debug: assignment editor: cid: ", cid, " || aid is:", aid);
-    const assignments = db.assignments;
+
+    const navigate = useNavigate();
+
+    const dispatch = useDispatch();
+    const assignments = useSelector((state: any) => state.assignmentsReducer.assignments);
+
+    const isNewAssignment = aid === "new";
+    const existingAssignment = isNewAssignment ? null : assignments.find((a: any) => a._id === aid);
+
+    const handleSave = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const formData = new FormData(event.currentTarget);
+
+        const formatDate = (dateString: string) => {
+            const date = new Date(dateString);
+            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            return `${monthNames[date.getMonth()]} ${date.getDate()} at ${date.getHours()}:${String(date.getMinutes()).padStart(2, '0')}${date.getHours() >= 12 ? 'pm' : 'am'}`;
+        };
+
+        const dueDate = formData.get('due_date') as string;
+        const availableFromDate = formData.get('available_from_date') as string;
+
+        let assignmentData: any = {
+            _id: isNewAssignment ? new Date().getTime().toString() : aid,
+            course: cid,
+            title: formData.get('title') as string,
+            description: formData.get('description') as string,
+            points: formData.get('points') as string,
+            due_date: dueDate,
+            available_from_date: availableFromDate,
+            until_date: dueDate, // Assuming until_date is the same as due_date
+            due: formatDate(dueDate + 'T23:59:00'), // Set to 23:59 of the due date
+            available: formatDate(availableFromDate + 'T12:00:00'), // Set to 00:00 of the available date
+        };
+
+        if (!isNewAssignment && existingAssignment) {
+            // Preserve existing fields that are not in the form
+            assignmentData = {
+                ...existingAssignment,
+                ...assignmentData
+            };
+        }
+
+        if (isNewAssignment) {
+            dispatch(addAssignment(assignmentData));
+        } else {
+            dispatch(updateAssignment(assignmentData));
+        }
+        navigate(`/Kanbas/Courses/${cid}/Assignments`);
+    };
+
+    const handleCancel = () => {
+        navigate(`/Kanbas/Courses/${cid}/Assignments`);
+    };
 
     return (
         <div id='wd-assignment-editor'>
-            <div className="col mb-3 ps-2">
-                <label htmlFor="wd-name" className="row-sm-5 row-form-label">
-                    Assignment Name
-                </label>
-                {assignments.filter((assignment: any) => assignment._id === aid).map((assignment) => (
+            <form onSubmit={handleSave}>
+                <div className="col mb-3 ps-2">
+                    <label htmlFor="wd-name" className="row-sm-5 row-form-label">
+                        Assignment Name
+                    </label>
                     <div className="row-sm-5">
-                        <input id="wd-name" className="form-control" value={assignment.title}/>
+                        <input id="wd-name" className="form-control" name={"title"}
+                               defaultValue={isNewAssignment ? "" : existingAssignment?.title}/>
                     </div>
-                ))}
-            </div>
-            <br/>
-            <div id="wd-description">
-                <div className="mb-3 row ps-2">
-                    {assignments.filter((assignment: any) => assignment._id === aid).map((assignment) => (
-                    <div className="row-cols-sm-5 row-form-label">
-                        <textarea className="form-control" id="wd-description" rows={15}>
-                            {assignment.description}
-                        </textarea>
-                    </div>
-                    ))}
                 </div>
-            </div>
-            <br/>
-            <form>
+                <br/>
+                <div id="wd-description">
+                    <div className="mb-3 row ps-2">
+                        <div className="row-cols-sm-5 row-form-label">
+                            <textarea
+                                className="form-control"
+                                id="wd-description"
+                                name="description"
+                                rows={15}
+                                defaultValue={isNewAssignment ? "" : existingAssignment?.description}
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <br/>
+
+
                 <div className="row mb-3 ps-2">
-                    {/* Make sure that the texts are positioned to the right side*/}
                     <div className="col text-end">
-                        <label htmlFor="wd-points"
-                               className="col-form-label">
+                        <label htmlFor="wd-points" className="col-form-label">
                             Points
                         </label>
                     </div>
-                    {assignments.filter((assignment: any) => assignment._id === aid).map((assignment) => (
-                        <div className="col">
-                            <input id="wd-points" className="form-control" value={assignment.points}/>
-                        </div>
-                    ))}
-
+                    <div className="col">
+                        <input
+                            id="wd-points"
+                            name="points"
+                            className="form-control"
+                            defaultValue={isNewAssignment ? "" : existingAssignment?.points}
+                        />
+                    </div>
                 </div>
 
+
                 <div className="row mb-3 ps-2">
-                <div className="col text-end">
+                    <div className="col text-end">
                         <label htmlFor="wd-group" className="col-form-label">
                             Assignment Group
                         </label>
@@ -136,78 +196,68 @@ export default function AssignmentEditor() {
                             Assign
                         </label>
                     </div>
-
                     <div className="col">
                         <div className="card">
                             <div className="card-body">
-                                {assignments.filter((assignment: any) => assignment._id === aid).map((assignment) => (
-                                    <>
+                                <div className="col">
+                                    <div className="col">
+                                        <label htmlFor="wd-due-date" className="col-form-label">
+                                            Due
+                                        </label>
+                                    </div>
+                                    <div className="col">
+                                        <input
+                                            id="wd-due-date"
+                                            name="due_date"
+                                            className="form-control"
+                                            type="date"
+                                            defaultValue={isNewAssignment ? "" : existingAssignment?.due_date}
+                                        />
+                                    </div>
+                                    <br/>
+                                </div>
+                                <div className="col text-nowrap">
+                                    <div className="row">
                                         <div className="col">
-                                            <div className="col">
-                                                <label htmlFor="wd-assign-to" className="col-form-label">
-                                                    Assign to
-                                                </label>
-                                            </div>
-                                            <div className="col">
-                                                <input id="wd-assign-to" className="form-control"
-                                                       value={" "}/>
-                                            </div>
+                                            <label htmlFor="wd-available-from" className="col-form-label">
+                                                Available from
+                                            </label>
+                                            <input
+                                                id="wd-available-from"
+                                                name="available_from_date"
+                                                className="form-control"
+                                                type="date"
+                                                defaultValue={isNewAssignment ? "" : existingAssignment?.available_from_date}
+                                            />
                                         </div>
-                                        <br/>
                                         <div className="col">
-                                            <div className="col">
-                                                <label htmlFor="wd-due-date"
-                                                       className="col-form-label">
-                                                    Due
-                                                </label>
-                                            </div>
-                                            <div className="col">
-                                                <input id="wd-due-date"
-                                                       className="form-control"
-                                                       type="date"
-                                                       value={assignment.due_date}
-                                                />
-                                            </div>
-                                            <br/>
+                                            <label htmlFor="wd-available-until" className="col-form-label">
+                                                Until
+                                            </label>
+                                            <input
+                                                id="wd-available-until"
+                                                name="available_until_date"
+                                                className="form-control"
+                                                type="date"
+                                                defaultValue={isNewAssignment ? "" : existingAssignment?.until_date}
+                                            />
                                         </div>
-                                        <div className="col text-nowrap">
-                                            <div className="row">
-                                                <div className="col">
-                                                    <label htmlFor="wd-available-from"
-                                                           className="col-form-label">
-                                                        Available from
-                                                    </label>
-                                                    <input id="wd-available-from"
-                                                           className="form-control"
-                                                           type="date"
-                                                           value={assignment.available_from_date}/>
-                                                </div>
-                                                <div className="col">
-                                                    <label htmlFor="wd-available-until"
-                                                           className="col-form-label">
-                                                        Until
-                                                    </label>
-                                                    <input id="wd-available-until"
-                                                           className="form-control"
-                                                           type="date"
-                                                           value={assignment.due_date}/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </>
-                                ))}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </form>
-            <hr/>
-            <div className={"row float-end"}>
-                <div className={"col"}>
-                    <button id="wd-cancel" className={"btn btn-lg btn-secondary me-2"}>Cancel</button>
-                    <button id="wd-save" className={"btn btn-lg btn-danger"}>Save</button>
+                <hr/>
+                <div className={"row float-end"}>
+                    <div className={"col"}>
+                        <button type="button" id="wd-cancel" className={"btn btn-lg btn-secondary me-2"}
+                                onClick={handleCancel}>Cancel
+                        </button>
+                        <button type="submit" id="wd-save" className={"btn btn-lg btn-danger"}>Save</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     );
 }

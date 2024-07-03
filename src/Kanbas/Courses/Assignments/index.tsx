@@ -1,5 +1,4 @@
 import {useParams} from "react-router";
-import * as db from "../../Database";
 import AssignmentControls from "./AssignmentControls";
 import AssignmentControlButtons from "./AssignmentControlButtons";
 import {BsGripVertical} from "react-icons/bs";
@@ -7,10 +6,38 @@ import HomeworkControlButtons from "./HomeworkControlButtons";
 import {GoTriangleDown} from "react-icons/go";
 import {TfiPencilAlt} from "react-icons/tfi";
 
+import {useDispatch, useSelector} from "react-redux";
+import {deleteAssignment} from "./reducer";
+import {useState} from "react";
+
 export default function Assignments() {
-    const {cid} = useParams();
-    console.log("DEBUG: course assignment index.tsx: " , cid);
-    const assignments = db.assignments;
+    const {cid, aid} = useParams();
+    console.log("DEBUG: Assignments/index.tsx: cid and aid:", cid, aid);
+
+    const {assignments} = useSelector((state: any) => state.assignmentsReducer);
+    const dispatch = useDispatch();
+
+    const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+    const [assignmentToDelete, setAssignmentToDelete] = useState<string | null>(null);
+
+    const handleDeleteClick = (assignmentId: string) => {
+        setAssignmentToDelete(assignmentId);
+        setShowConfirmDialog(true);
+    };
+
+    const handleConfirmDelete = () => {
+        if (assignmentToDelete) {
+            dispatch(deleteAssignment(assignmentToDelete));
+        }
+        setShowConfirmDialog(false);
+        setAssignmentToDelete(null);
+    };
+
+    const handleCancelDelete = () => {
+        setShowConfirmDialog(false);
+        setAssignmentToDelete(null);
+    };
+
 
     return (
         <div id="wd-assignment">
@@ -51,12 +78,15 @@ export default function Assignments() {
                                              </div>
                                     </span>
                                     <div className="ms-auto">
-                                        <HomeworkControlButtons/>
+                                        <HomeworkControlButtons
+                                            onDeleteClick={() => handleDeleteClick(assignment._id)}/>
                                     </div>
                                 </div>
                             </li>
                         ))}
                     </ul>
+
+
                     {/* <ul className="wd-assignmnet-list list-group rounded-0" style={{borderLeft: '5px solid green'}}>
                         <li className="wd-assignment-list-item list-group-item p-3 ps-1">
                             <div className="d-flex align-items-center flex-grow-1">
@@ -144,6 +174,30 @@ export default function Assignments() {
                     </ul>*/}
                 </li>
             </ul>
+
+            {showConfirmDialog && (
+                <div className="modal" style={{display: 'block', backgroundColor: 'rgba(0,0,0,0.5)'}}>
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title">Confirm Deletion</h5>
+                                <button type="button" className="btn-close" onClick={handleCancelDelete}></button>
+                            </div>
+                            <div className="modal-body">
+                                Are you sure you want to remove this assignment?
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary"
+                                        onClick={handleCancelDelete}>Cancel
+                                </button>
+                                <button type="button" className="btn btn-danger" onClick={handleConfirmDelete}>Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
         </div>
     )
 };
