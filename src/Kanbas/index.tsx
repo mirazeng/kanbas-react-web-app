@@ -1,9 +1,9 @@
 import Dashboard from "./Dashboard";
-import {Routes, Route, Navigate} from "react-router";
+import {Navigate, Route, Routes} from "react-router";
 import Courses from "./Courses";
 import "./styles.css";
 import KanbasNavigation from "./Navigation";
-import {Profiler, useState} from "react";
+import {useState} from "react";
 import * as db from "./Database";
 import store from "./store";
 import {Provider} from "react-redux";
@@ -14,7 +14,7 @@ export default function Kanbas() {
     const [course, setCourse] = useState<any>({
         _id: "0", name: "New Course", number: "New Number",
         startDate: "2023-09-10", endDate: "2023-12-15",
-        image: "/images/reactjs.png", description: "New Description"
+        image: "reactjs.png", description: "New Description"
     });
 
     const addNewCourse = () => {

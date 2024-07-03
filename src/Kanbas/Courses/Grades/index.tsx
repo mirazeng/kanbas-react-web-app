@@ -3,8 +3,8 @@ import {HiMagnifyingGlass} from "react-icons/hi2";
 import {FiFilter} from "react-icons/fi";
 import {MdOutlineKeyboardArrowDown} from "react-icons/md";
 import * as db from "../../Database";
-import {useParams} from "react-router";
 import {assignments} from "../../Database";
+import {useParams} from "react-router";
 
 export default function Grades() {
     const {cid} = useParams(); //current active course id

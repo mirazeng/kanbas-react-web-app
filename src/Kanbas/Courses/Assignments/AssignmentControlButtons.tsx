@@ -1,5 +1,5 @@
-import { IoEllipsisVertical } from "react-icons/io5";
-import { FaPlus } from "react-icons/fa6";
+import {IoEllipsisVertical} from "react-icons/io5";
+import {FaPlus} from "react-icons/fa6";
 
 export default function AssignmentControlButtons() {
     return (
@@ -10,7 +10,7 @@ export default function AssignmentControlButtons() {
                              me-2 px-2 py-1">
                             40% of Total
                         </span>
-            <FaPlus className="me-1 fs-4" />
+            <FaPlus className="me-1 fs-4"/>
             <IoEllipsisVertical className="me-1 fs-4"/>
         </div>
     )

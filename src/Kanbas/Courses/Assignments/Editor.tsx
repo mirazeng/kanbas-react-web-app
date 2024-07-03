@@ -1,6 +1,6 @@
 import React from "react";
-import {useParams, useNavigate} from "react-router";
-import {useSelector, useDispatch} from "react-redux";
+import {useNavigate, useParams} from "react-router";
+import {useDispatch, useSelector} from "react-redux";
 import {addAssignment, updateAssignment} from "./reducer";
 
 export default function AssignmentEditor() {

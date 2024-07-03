@@ -1,6 +1,5 @@
-import React, {useState} from "react";
+import React from "react";
 import {Link} from "react-router-dom";
-import * as db from "../Database";
 
 export default function Dashboard(
     {
@@ -50,7 +49,8 @@ export default function Dashboard(
                         <div className="wd-dashboard-courses col" style={{width: "300px"}}>
                             <Link to={`/Kanbas/Courses/${course._id}/Home`} className="text-decoration-none">
                                 <div className="card rounded-3 overflow-hidden">
-                                    <img src={`/images/${course.image}`} height="{160}"/>
+                                    {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+                                    <img src={`/images/${course.image}`} alt={"picture"} height="{160}"/>
                                     <div className="card-body">
                                     <span className="wd-dashboard-course-link"
                                           style={{textDecoration: "none", color: "navy", fontWeight: "bold"}}>

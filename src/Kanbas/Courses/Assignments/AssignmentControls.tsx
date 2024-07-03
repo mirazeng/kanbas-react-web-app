@@ -1,6 +1,5 @@
 import {FaPlus} from "react-icons/fa6";
-import { HiMagnifyingGlass } from "react-icons/hi2";
-import {Link} from "react-router-dom";
+import {HiMagnifyingGlass} from "react-icons/hi2";
 import {useParams} from "react-router";
 
 export default function AssignmentControls() {
@@ -12,9 +11,9 @@ export default function AssignmentControls() {
                 <span className="input-group-text">
                     <HiMagnifyingGlass/>
                 </span>
-                    <input id="input-group-text"
-                           className="form-control"
-                           type="text" placeholder="Search..."/>
+                <input id="input-group-text"
+                       className="form-control"
+                       type="text" placeholder="Search..."/>
             </div>
 
             <div className="input-group me-1 justify-content-end">
@@ -29,7 +28,7 @@ export default function AssignmentControls() {
                     {/*  + Assignment button should navigate to Assignment Editor with empty fields */}
 
                     <a id="wd-add-assignment"
-                            className="btn btn-lg btn-danger me-1" href={`#/Kanbas/Courses/${cid}/Assignments/new`}>
+                       className="btn btn-lg btn-danger me-1" href={`#/Kanbas/Courses/${cid}/Assignments/new`}>
                         <FaPlus className="position-relative me-1" style={{bottom: "1px"}}/>
                         Assignment
                     </a>
