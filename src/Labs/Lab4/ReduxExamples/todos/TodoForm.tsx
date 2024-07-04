@@ -10,14 +10,14 @@ export default function TodoForm() {
     return (
 
         <li className="list-group-item">
-            <button onClick={() => dispatch(addTodo(todo))}
-                    id="wd-add-todo-click"> Add
-            </button>
-            <button onClick={() => dispatch(updateTodo(todo))}
-                    id="wd-update-todo-click"> Update
-            </button>
             <input value={todo.title}
                    onChange={(e) => dispatch(setTodo({...todo, title: e.target.value}))}/>
+                <button onClick={() => dispatch(addTodo(todo))}
+                        id="wd-add-todo-click" className="btn btn-success" style={{marginLeft:"20px"}}> Add
+                </button>
+                <button onClick={() => dispatch(updateTodo(todo))}
+                        id="wd-update-todo-click" className="btn btn-warning" style={{marginLeft:"10px"}}> Update
+                </button>
         </li>
     );
 }

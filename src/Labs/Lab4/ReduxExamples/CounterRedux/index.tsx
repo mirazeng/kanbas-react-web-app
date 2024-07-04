@@ -6,8 +6,8 @@ export default function CounterRedux() {
     const dispatch = useDispatch();
     return (
         <div id="wd-counter-redux">
-            <h2>Counter Redux</h2>
-            <h3>{count}</h3>
+            <h3>Counter Redux</h3>
+            <h4>{count}</h4>
             <button onClick={() => dispatch(increment())}
                     id="wd-counter-redux-increment-click"> Increment </button>
             <button onClick={() => dispatch(decrement())}
