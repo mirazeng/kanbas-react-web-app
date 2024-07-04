@@ -8,8 +8,8 @@ export default function AddRedux() {
     const dispatch = useDispatch();
     return (
         <div className="w-25" id="wd-add-redux">
-            <h1>Add Redux</h1>
-            <h2>{a} + {b} = {sum}</h2>
+            <h3>Add Redux</h3>
+            <h4>{a} + {b} = {sum}</h4>
             <input type="number" value={a}
                    onChange={(e) => setA(parseInt(e.target.value))}
                    className="form-control" />

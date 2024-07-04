@@ -7,13 +7,13 @@ export default function TodoItem({todo}: { todo: { id: string; title: string } }
 
     return (
         <li key={todo.id} className="list-group-item">
+            {todo.title}
             <button onClick={() => dispatch(deleteTodo(todo.id))}
-                    id="wd-delete-todo-click"> Delete
+                    id="wd-delete-todo-click" className="btn btn-danger" style={{marginLeft:"130px"}}> Delete
             </button>
             <button onClick={() => dispatch(setTodo(todo))}
-                    id="wd-set-todo-click"> Edit
+                    id="wd-set-todo-click" className="btn btn-primary" style={{marginLeft:"10px"}}> Edit
             </button>
-            {todo.title}
         </li>
     );
 }
