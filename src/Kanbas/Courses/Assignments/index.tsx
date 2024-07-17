@@ -5,10 +5,12 @@ import {BsGripVertical} from "react-icons/bs";
 import HomeworkControlButtons from "./HomeworkControlButtons";
 import {GoTriangleDown} from "react-icons/go";
 import {TfiPencilAlt} from "react-icons/tfi";
+import * as client from "./client";
+import {useState, useEffect} from "react";
 
 import {useDispatch, useSelector} from "react-redux";
-import {deleteAssignment} from "./reducer";
-import {useState} from "react";
+import {setAssignments, deleteAssignment} from "./reducer";
+
 
 export default function Assignments() {
     const {cid, aid} = useParams();
@@ -16,6 +18,22 @@ export default function Assignments() {
 
     const {assignments} = useSelector((state: any) => state.assignmentsReducer);
     const dispatch = useDispatch();
+
+    const fetchAssignments = async () => {
+        const assignments = await client.findAssignmentForCourse(cid as string);
+        dispatch(setAssignments(assignments));
+    };
+
+    const removeAssignment = async (assignment: any) => {
+        const status = await client.deleteAssignment(assignment);
+        dispatch(deleteAssignment(assignment));
+
+    }
+
+    useEffect(() => {
+        fetchAssignments();
+    }, []);
+
 
     const [showConfirmDialog, setShowConfirmDialog] = useState(false);
     const [assignmentToDelete, setAssignmentToDelete] = useState<string | null>(null);
@@ -27,7 +45,7 @@ export default function Assignments() {
 
     const handleConfirmDelete = () => {
         if (assignmentToDelete) {
-            dispatch(deleteAssignment(assignmentToDelete));
+            removeAssignment(assignmentToDelete);
         }
         setShowConfirmDialog(false);
         setAssignmentToDelete(null);

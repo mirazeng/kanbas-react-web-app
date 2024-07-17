@@ -2,6 +2,7 @@ import React from "react";
 import {useNavigate, useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import {addAssignment, updateAssignment} from "./reducer";
+import * as client from "./client";
 
 export default function AssignmentEditor() {
 
@@ -12,6 +13,16 @@ export default function AssignmentEditor() {
 
     const dispatch = useDispatch();
     const assignments = useSelector((state: any) => state.assignmentsReducer.assignments);
+
+    const createAssignment = async (assignment: any) => {
+        const newAssignment = await client.createAssignment(cid as string, assignment);
+        dispatch(addAssignment(newAssignment));
+    };
+
+    const saveAssignment = async (assignment: any) => {
+        const status = await client.updateAssignment(assignment);
+        dispatch(updateAssignment(status));
+    }
 
     const isNewAssignment = aid === "new";
     const existingAssignment = isNewAssignment ? null : assignments.find((a: any) => a._id === aid);
@@ -51,9 +62,9 @@ export default function AssignmentEditor() {
         }
 
         if (isNewAssignment) {
-            dispatch(addAssignment(assignmentData));
+            createAssignment(assignmentData);
         } else {
-            dispatch(updateAssignment(assignmentData));
+            saveAssignment(assignmentData);
         }
         navigate(`/Kanbas/Courses/${cid}/Assignments`);
     };

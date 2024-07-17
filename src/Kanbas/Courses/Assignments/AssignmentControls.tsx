@@ -25,8 +25,6 @@ export default function AssignmentControls() {
                     </button>
                 </div>
                 <div>
-                    {/*  + Assignment button should navigate to Assignment Editor with empty fields */}
-
                     <a id="wd-add-assignment"
                        className="btn btn-lg btn-danger me-1" href={`#/Kanbas/Courses/${cid}/Assignments/new`}>
                         <FaPlus className="position-relative me-1" style={{bottom: "1px"}}/>
@@ -35,6 +33,5 @@ export default function AssignmentControls() {
                 </div>
             </div>
 
-        </div>
-    );
+        </div>);
 }
