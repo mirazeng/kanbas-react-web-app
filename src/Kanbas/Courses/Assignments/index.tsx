@@ -28,7 +28,6 @@ export default function Assignments() {
     const removeAssignment = async (assignment: any) => {
         const status = await client.deleteAssignment(assignment);
         dispatch(deleteAssignment(assignment));
-
     }
 
     useEffect(() => {
