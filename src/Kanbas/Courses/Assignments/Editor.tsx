@@ -21,7 +21,7 @@ export default function AssignmentEditor() {
 
     const saveAssignment = async (assignment: any) => {
         const status = await client.updateAssignment(assignment);
-        dispatch(updateAssignment(status));
+        dispatch(updateAssignment(assignment));
     }
 
     const isNewAssignment = aid === "new";
