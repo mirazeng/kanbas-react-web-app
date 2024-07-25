@@ -6,6 +6,9 @@ import {FaPencil} from "react-icons/fa6";
 import {Link} from "react-router-dom";
 import * as client from "./client";
 
+
+// for redeploy to netifly
+
 export default function PeopleDetails({fetchUsers}: { fetchUsers: () => void; }) {
 
     const [name, setName] = useState("");
