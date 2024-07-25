@@ -38,7 +38,6 @@ export default function Modules() {
         dispatch(updateModule(module));
     };
 
-
     return (<div className={"wd-modules"}>
             <ModulesControls
                 moduleName={moduleName}
