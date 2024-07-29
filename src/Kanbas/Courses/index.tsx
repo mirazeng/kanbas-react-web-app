@@ -7,7 +7,6 @@ import {Navigate, Route, Routes, useLocation, useParams} from "react-router";
 import {FaAlignJustify} from "react-icons/fa";
 import Grades from "./Grades";
 import PeopleTable from "./People/Table";
-import PeopleDetails from "./People/Details";
 
 export default function Courses({courses}: { courses: any[] }) {
 
