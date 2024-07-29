@@ -8,6 +8,8 @@ import {FaAlignJustify} from "react-icons/fa";
 import Grades from "./Grades";
 import PeopleTable from "./People/Table";
 
+// update the git push info
+
 export default function Courses({courses}: { courses: any[] }) {
 
     const {cid} = useParams();
