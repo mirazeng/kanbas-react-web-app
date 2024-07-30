@@ -1,4 +1,5 @@
 import axios from "axios";
+
 const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER;
 const COURSES_API = `${REMOTE_SERVER}/api/courses`;
 
@@ -13,8 +14,8 @@ export const createCourse = async (course: any) => {
     return response.data;
 };
 
-export const deleteCourse = async (id: string) => {
-    const response = await axios.delete(`${COURSES_API}/${id}`);
+export const deleteCourse = async (number: string) => {
+    const response = await axios.delete(`${COURSES_API}/${number}`);
     return response.data;
 };
 
