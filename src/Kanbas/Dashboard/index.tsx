@@ -1,20 +1,17 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-export default function Dashboard(
-    {
-        courses, course, setCourse, addNewCourse,
-        deleteCourse, updateCourse
-    }: {
-        courses: any[]; course: any; setCourse: (course: any) => void;
-        addNewCourse: () => void; deleteCourse: (course: any) => void;
-        updateCourse: () => void;
-    }
-) {
-
-
-    return (
-        <div id="wd-dashboard">
+export default function Dashboard({
+                                      courses, course, setCourse, addNewCourse, deleteCourse, updateCourse
+                                  }: {
+    courses: any[];
+    course: any;
+    setCourse: (course: any) => void;
+    addNewCourse: () => void;
+    deleteCourse: (_id: any) => void;
+    updateCourse: () => void;
+}) {
+    return (<div id="wd-dashboard">
             <h1 id="wd-dashboard-title">
                 Dashboard
             </h1>
@@ -45,8 +42,7 @@ export default function Dashboard(
             <hr/>
             <div id="wd-dashboard-courses" className="row">
                 <div className="row row-cols-1 row-cols-md-5 g-4">
-                    {courses.map((course) => (
-                        <div className="wd-dashboard-courses col" style={{width: "300px"}}>
+                    {courses.map((course) => (<div className="wd-dashboard-courses col" style={{width: "300px"}}>
                             <Link to={`/Kanbas/Courses/${course._id}/Home`} className="text-decoration-none">
                                 <div className="card rounded-3 overflow-hidden">
                                     {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
@@ -84,12 +80,10 @@ export default function Dashboard(
                                 </div>
                             </Link>
 
-                        </div>
-                    ))}
+                        </div>))}
                 </div>
             </div>
-        </div>
-    );
+        </div>);
 }
 
 
