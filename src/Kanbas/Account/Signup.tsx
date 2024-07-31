@@ -15,8 +15,7 @@ export default function Signup() {
             dispatch(setCurrentUser(currentUser));
             navigate("/Kanbas/Account/Profile");
         } catch (err: any) {
-            // setError(err.response.message);
-            setError("Sign up failed: Invalid username or password");
+            setError(err.response.message);
         }
     }
     return (

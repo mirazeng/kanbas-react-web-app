@@ -9,7 +9,13 @@ export default function AccountNavigation() {
         <div id="wd-account-navigation" className="list-group fs-5 rounded-0">
             {links.map((link) => (
                 <Link to={`/Kanbas/Account/${link}`} className={`wd-link border border-0 list-group-item
-           ${ pathname.includes(link) ? "active text-black" : "text-danger" }`}> {link} </Link>
+           ${ pathname.includes(link) 
+                    ? 
+                    "active text-black border-start border-3 border-black" 
+                    : 
+                    "text-danger" }`}
+                      style={{backgroundColor: "transparent"}}
+                > {link} </Link>
             ))}
         </div>
     );
