@@ -9,6 +9,7 @@ export default function Session({ children }: { children: any }) {
     const fetchProfile = async () => {
         try {
             const currentUser = await client.profile();
+            console.log("DEBUG: Session.tsx -> fetchProfile -> currentUser", currentUser);
             dispatch(setCurrentUser(currentUser));
         } catch (err: any) {
             console.error(err);
